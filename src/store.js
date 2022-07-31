@@ -17,7 +17,7 @@ const store = {
     async getWeather(query) {
       try {
         const resLoc = await axios.get(
-          `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=1&appid=237df70526ab4c2db25abe04b0e0649e`
+          `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=1&appid=237df70526ab4c2db25abe04b0e0649e`
         );
 
         store.state.lon = await resLoc.data[0]?.lon;
