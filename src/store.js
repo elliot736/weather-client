@@ -7,6 +7,11 @@ const store = {
     lon: null,
     lat: null,
     city: "",
+    pollen: false,
+    biowetter: false,
+    recomms: [],
+    uvi: false,
+    gfi: false,
   }),
   getters: {
     async getWeather(query) {
@@ -30,6 +35,55 @@ const store = {
       } catch (error) {
         console.log(error);
         store.state.weather = false;
+      }
+    },
+    async getPollen(region) {
+      try {
+        const pollen = await axios.get(
+          `https://wetter-api.herokuapp.com/api/v1/pollen?region=${region}`
+        );
+        store.state.pollen = await pollen.data.data;
+      } catch (error) {
+        console.log(error);
+        store.state.pollen = false;
+      }
+    },
+    async getBiowetter(city) {
+      try {
+        const biowetter = await axios.get(
+          `https://wetter-api.herokuapp.com/api/v1/biowetter?city=${city}`
+        );
+        store.state.biowetter = await biowetter.data.data;
+        if (store.state.biowetter) {
+          for (let item in store.state.biowetter) {
+            store.state.recomms.push(store.state.biowetter[item]);
+          }
+        }
+      } catch (error) {
+        console.log(error);
+        store.state.biowetter = false;
+      }
+    },
+    async getUVI(city) {
+      try {
+        const uvi = await axios.get(
+          `https://wetter-api.herokuapp.com/api/v1/uvi?station=${city}`
+        );
+        store.state.uvi = await uvi.data.data;
+      } catch (error) {
+        console.log(error);
+        store.state.uvi = false;
+      }
+    },
+    async getGFI(city) {
+      try {
+        const gfi = await axios.get(
+          `https://wetter-api.herokuapp.com/api/v1/gfi?station=${city}`
+        );
+        store.state.gfi = await gfi.data.data;
+      } catch (error) {
+        console.log(error);
+        store.state.gfi = false;
       }
     },
   },

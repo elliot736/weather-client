@@ -1,5 +1,18 @@
 <template>
-  <div class="about">
-    <h1>This is an pollen page</h1>
+  <div class="flex flex-row justify-around">
+    <PollenMap />
+    <PollenCard />
   </div>
 </template>
+
+<script>
+import PollenMap from ".././components/PollenMap.vue";
+import PollenCard from "../components/PollenCard.vue";
+
+export default {
+  components: {
+    PollenMap,
+    PollenCard,
+  },
+};
+</script>
