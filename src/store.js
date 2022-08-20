@@ -26,8 +26,6 @@ const store = {
           `https://api.openweathermap.org/data/2.5/weather?lat=${store.state.lat}&lon=${store.state.lon}&units=metric&appid=237df70526ab4c2db25abe04b0e0649e`
         );
 
-        console.log(resWeather);
-
         if (await resWeather.data) {
           store.state.weather = await resWeather.data;
           store.state.city = query.charAt(0).toUpperCase() + query.slice(1);
@@ -87,13 +85,12 @@ const store = {
       }
     },
   },
-  mutations: {},
+
   actions: {
     initializeWeather() {
       store.state.weather;
       store.state.lon;
       store.state.lat;
-      store.state.active;
     },
   },
 };

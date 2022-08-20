@@ -31,13 +31,6 @@
       <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0"></div>
     </div>
 
-    <!-- <a
-    class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0"
-  >
-    <img class="w-[4rem] text-white p-2" src="../assets/logo.png" alt="" />
-    <span class="ml-3 text-xl">Wetter Daten</span>
-  </a> -->
-
     <router-view />
   </div>
 </template>
