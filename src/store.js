@@ -1,6 +1,7 @@
 import { reactive } from "vue";
 import axios from "axios";
-
+axios.defaults.baseURL = "http://wetter-api.marrcode.me/api/v1";
+axios.defaults.withCredentals = true;
 const store = {
   state: reactive({
     weather: false,
