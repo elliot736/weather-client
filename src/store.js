@@ -1,6 +1,6 @@
 import { reactive } from "vue";
 import axios from "axios";
-axios.defaults.baseURL = "http://wetter-api.marrcode.me/api/v1";
+axios.defaults.baseURL = "https://wetter-api.ksibati.dev/api/v1";
 axios.defaults.withCredentals = true;
 const store = {
   state: reactive({
@@ -39,7 +39,7 @@ const store = {
     async getPollen(region) {
       try {
         const pollen = await axios.get(
-          `http://wetter-api.marrcode.me/api/v1/pollen?region=${region}`
+          `https://wetter-api.ksibati.dev/api/v1/pollen?region=${region}`
         );
         store.state.pollen = await pollen.data.data;
       } catch (error) {
@@ -50,7 +50,7 @@ const store = {
     async getBiowetter(city) {
       try {
         const biowetter = await axios.get(
-          `http://wetter-api.marrcode.me/api/v1/biowetter?city=${city}`
+          `https://wetter-api.ksibati.dev/api/v1/biowetter?city=${city}`
         );
         store.state.biowetter = await biowetter.data.data;
         if (store.state.biowetter) {
@@ -66,7 +66,7 @@ const store = {
     async getUVI(city) {
       try {
         const uvi = await axios.get(
-          `http://wetter-api.marrcode.me/api/v1/uvi?station=${city}`
+          `https://wetter-api.ksibati.dev/api/v1/uvi?station=${city}`
         );
         store.state.uvi = await uvi.data.data;
       } catch (error) {
@@ -77,7 +77,7 @@ const store = {
     async getGFI(city) {
       try {
         const gfi = await axios.get(
-          `http://wetter-api.marrcode.me/api/v1/gfi?station=${city}`
+          `https://wetter-api.ksibati.dev/api/v1/gfi?station=${city}`
         );
         store.state.gfi = await gfi.data.data;
       } catch (error) {
