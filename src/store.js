@@ -38,7 +38,7 @@ const store = {
     async getPollen(region) {
       try {
         const pollen = await axios.get(
-          `https://wetter-api.herokuapp.com/api/v1/pollen?region=${region}`
+          `https://wetter-api.marrcode.me/api/v1/pollen?region=${region}`
         );
         store.state.pollen = await pollen.data.data;
       } catch (error) {
@@ -49,7 +49,7 @@ const store = {
     async getBiowetter(city) {
       try {
         const biowetter = await axios.get(
-          `https://wetter-api.herokuapp.com/api/v1/biowetter?city=${city}`
+          `https://wetter-api.marrcode.me/api/v1/biowetter?city=${city}`
         );
         store.state.biowetter = await biowetter.data.data;
         if (store.state.biowetter) {
@@ -65,7 +65,7 @@ const store = {
     async getUVI(city) {
       try {
         const uvi = await axios.get(
-          `https://wetter-api.herokuapp.com/api/v1/uvi?station=${city}`
+          `https://wetter-api.marrcode.me/api/v1/uvi?station=${city}`
         );
         store.state.uvi = await uvi.data.data;
       } catch (error) {
@@ -76,7 +76,7 @@ const store = {
     async getGFI(city) {
       try {
         const gfi = await axios.get(
-          `https://wetter-api.herokuapp.com/api/v1/gfi?station=${city}`
+          `https://wetter-api.marrcode.me/api/v1/gfi?station=${city}`
         );
         store.state.gfi = await gfi.data.data;
       } catch (error) {
